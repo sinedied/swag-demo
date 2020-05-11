@@ -4,7 +4,7 @@ html, body {
   height: 100%;
 }
 body {
-  background-image: url(https://source.unsplash.com/featured/1920x1080);
+  background-image: url(https://source.unsplash.com/1920x1080?dream);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -13,6 +13,8 @@ body {
 #quote {
   font-family: 'Indie Flower', cursive;
   font-size: 6vw;
-  text-shadow: 0 0 10px #000;
+  padding: 3vw;
   color: #fff;
+  text-shadow: 0 0 10px #000;
+  text-align: center;
 }
