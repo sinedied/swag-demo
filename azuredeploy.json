@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "appName": "swag-demo",
+    "staticWebAppName": "[concat('store', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/staticSites",
+      "apiVersion": "2019-12-01-preview",
+      "name": "[variables('appName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard", 
+        "tier": "Standard"
+      },
+      "properties": {
+        "branch": "master", 
+        "createOrUpdateWorkflow": "true", 
+        "buildProperties" : { 
+          "appLocation" : "app",
+          "apiLocation" : "api",
+          "appArtifactLocation" : "app"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
+}
