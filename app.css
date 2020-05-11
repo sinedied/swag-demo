@@ -4,7 +4,7 @@ html, body {
   height: 100%;
 }
 body {
-  background-image: url(https://source.unsplash.com/1920x1080?dream);
+  background: linear-gradient(0deg, rgba(109,172,255,1) 0%, rgba(136,235,255,1) 100%);
   background-size: cover;
   display: flex;
   align-items: center;
