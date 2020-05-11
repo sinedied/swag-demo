@@ -1,6 +1,5 @@
 async function displayQuote() {
-  const response = await fetch('/api/quote');
-  const quote = await response.json();
+  const quote = await fetch('/api/quote');
   document.body.quote.textContent = quote;
 }
 displayQuote();
