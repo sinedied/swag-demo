@@ -1,7 +1,8 @@
 async function displayQuote() {
   let quote;
   try {
-    quote = await fetch('/api/quote');
+    const response = await fetch('/api/quote');
+    quote = await response.text();
   } catch (error) {
     quote = `Could not get quote: ${error.message}`;
   }
