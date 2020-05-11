@@ -1,3 +1,5 @@
+const https = require('https');
+
 const quotes = [
   'Wherever you go, no matter what the weather, always bring your own sunshine.',
   'You\’re awesome.',
@@ -9,10 +11,31 @@ const quotes = [
   'You deserve the best.'
 ];
 
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+const unplashApi = 'https://source.unsplash.com/1920x1080?dream';
 
-    context.res = {
-        body: quotes[Math.floor(Math.random() * quotes.length)]
-    };
+async function getImage() {
+  return new Promise((resolve, reject) => {
+    https.get(unplashApi, response => {
+      response.on('end', () => {
+        // Returns HTTP 302 with image URL in location header
+        resolve(response.headers.location);
+      });
+    }).on('error', (error) => {
+      reject(error.message);
+    });
+  });
+}
+
+module.exports = async function (context, req) {
+  context.log('JavaScript HTTP trigger function processed a request.');
+
+  const image = await getImage();
+  const text = quotes[Math.floor(Math.random() * quotes.length)];
+
+  context.res = {
+    body: {
+      image,
+      text
+    }
+  };
 };

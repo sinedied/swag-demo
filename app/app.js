@@ -2,12 +2,12 @@ async function displayQuote() {
   let quote;
   try {
     const response = await fetch('/api/quote');
-    quote = await response.text();
+    quote = await response.json();
   } catch (error) {
-    quote = `Could not get quote: ${error.message}`;
+    quote = { text: `Could not get quote: ${error.message}` };
   }
   const div = document.getElementById('quote');
-  div.textContent = quote;
+  div.textContent = quote.text;
 }
 
 displayQuote();
