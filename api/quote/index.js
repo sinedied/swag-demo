@@ -3,7 +3,10 @@ const quotes = [
   'You\’re awesome.',
   'Happiness is the only thing that multiplies when you share it.',
   'It always seems impossible until it is done.',
-  'Let your unique positive energy inspire confidence in others.'
+  'Let your unique positive energy inspire confidence in others.',
+  'The best is yet to come.',
+  'You\'re capable of more than you can even dream.',
+  'You deserve the best.'
 ];
 
 module.exports = async function (context, req) {
