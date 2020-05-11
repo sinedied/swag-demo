@@ -1,9 +1,5 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "scripts" : {
-    "test": "echo \"No tests yet...\""
-  },
-  "author": ""
+  "name": "swag-demo-api",
+  "version": "1.0.0",
+  "description": "swag demo API"
 }
