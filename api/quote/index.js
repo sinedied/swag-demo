@@ -15,11 +15,8 @@ const unplashApi = 'https://source.unsplash.com/1920x1080?dream';
 
 async function getImage() {
   return new Promise((resolve, reject) => {
-    https.get(unplashApi, response => {
-      response.on('end', () => {
-        // Returns HTTP 302 with image URL in location header
-        resolve(response.headers.location);
-      });
+    https.get(unplashApi, (response) => {
+      resolve(response.headers.location);
     }).on('error', (error) => {
       reject(error.message);
     });
