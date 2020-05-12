@@ -1,44 +1,63 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "name": {
+      "type": "string",
+      "defaultValue": "azure-swag"
+    },
     "location": {
       "type": "string",
-      "defaultValue": "[resourceGroup().location]",
+      "defaultValue": "westus2"
+    },
+    "repositoryUrl": {
+      "type": "string",
       "metadata": {
-        "description": "Location for all resources."
+        "description": "Your GitHub repository URL"
       }
+    },
+    "branch": {
+      "type": "string",
+      "defaultValue": "master"
+    },
+    "repositoryToken": {
+      "type": "securestring"
+    },
+    "appLocation": {
+      "type": "string",
+      "defaultValue": "/"
+    },
+    "apiLocation": {
+      "type": "string",
+      "defaultValue": "api"
+    },
+    "appArtifactLocation": {
+      "type": "string",
+      "defaultValue": ""
     }
-  },
-  "variables": {
-    "appName": "swag-demo",
-    "staticWebAppName": "[concat('store', uniquestring(resourceGroup().id))]"
   },
   "resources": [
     {
-      "type": "Microsoft.Web/staticSites",
       "apiVersion": "2019-12-01-preview",
-      "name": "[variables('appName')]",
+      "name": "[parameters('name')]",
+      "type": "Microsoft.Web/staticSites",
       "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard", 
-        "tier": "Standard"
-      },
+      "tags": null,
       "properties": {
-        "branch": "master", 
-        "createOrUpdateWorkflow": "true", 
-        "buildProperties" : { 
-          "appLocation" : "app",
-          "apiLocation" : "api",
-          "appArtifactLocation" : "app"
+        "repositoryUrl": "[parameters('repositoryUrl')]",
+        "branch": "[parameters('branch')]",
+        "createOrUpdateWorkflow": "true",
+        "repositoryToken": "[parameters('repositoryToken')]",
+        "buildProperties": {
+          "appLocation": "[parameters('appLocation')]",
+          "apiLocation": "[parameters('apiLocation')]",
+          "appArtifactLocation": "[parameters('appArtifactLocation')]"
         }
+      },
+      "sku": {
+        "Tier": "Free",
+        "Name": "Free"
       }
     }
-  ],
-  "outputs": {
-    "storageAccountName": {
-      "type": "string",
-      "value": "[variables('storageAccountName')]"
-    }
-  }
+  ]
 }
