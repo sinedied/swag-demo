@@ -3,12 +3,14 @@ html, body {
   padding: 0;
   height: 100%;
 }
+
 body {
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 #quote {
   font-family: 'Indie Flower', cursive;
   font-size: 6vw;
@@ -16,4 +18,22 @@ body {
   color: #fff;
   text-shadow: 0 0 10px #000;
   text-align: center;
+}
+
+.loader {
+  width: 250px;
+  height: 250px;
+  background-color: #4cf;
+  border-radius: 100%;  
+  animation: scaleout 2s infinite ease-in-out;
+}
+
+@keyframes scaleout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
 }
