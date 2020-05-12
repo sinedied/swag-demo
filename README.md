@@ -19,10 +19,3 @@ TL;DR:
 For the longer version with the deployment instructions, [see this full length article](https://dev.to 'TODO devto link').
 
 You can also take a look at [the official docs](https://docs.microsoft.com/azure/static-web-apps?WT.mc_id=build2020_swa-github-yolasors).
-
-
-
-
-
-
-https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsinedied%2Fazure-swag%2Fmaster%2F.azuredeploy.json%3Ftoken%3DAAEQZ77VJMJ3DHZVJNGZAI26XJS6Y
