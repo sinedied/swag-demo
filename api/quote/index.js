@@ -1,5 +1,6 @@
 const https = require('https');
 
+const unplashApi = 'https://source.unsplash.com/1920x1080?dream';
 const quotes = [
   'Wherever you go, no matter what the weather, always bring your own sunshine.',
   'You\’re awesome.',
@@ -11,11 +12,10 @@ const quotes = [
   'You deserve the best.'
 ];
 
-const unplashApi = 'https://source.unsplash.com/1920x1080?dream';
-
 async function getImage() {
   return new Promise((resolve, reject) => {
     https.get(unplashApi, (response) => {
+      // API returns a HTTP 302 code, we only want the final image URL
       resolve(response.headers.location);
     }).on('error', (error) => {
       reject(error.message);
