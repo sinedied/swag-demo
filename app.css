@@ -5,7 +5,8 @@ html, body {
 }
 
 body {
-  background-size: cover;
+  transition: background 2s ease;
+  background: #4cf;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +24,7 @@ body {
 .loader {
   width: 250px;
   height: 250px;
-  background-color: #4cf;
+  background-color: #fff;
   border-radius: 100%;  
   animation: scaleout 2s infinite ease-in-out;
 }
