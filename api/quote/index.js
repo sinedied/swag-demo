@@ -9,7 +9,9 @@ const quotes = [
   'Let your unique positive energy inspire confidence in others.',
   'The best is yet to come.',
   'You\'re capable of more than you can even dream.',
-  'You deserve the best.'
+  'You deserve the best.',
+  'Keep going, you\'re doing well.',
+  'Stay positive; stay hopeful'
 ];
 
 async function getImage() {
