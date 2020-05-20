@@ -14,7 +14,7 @@ Click on **Use this template** on GitHub, then click on the button below to depl
 
 TL;DR:
 
-> It's an all-inclusive hosting service for web apps with serverless APIs, based on continuous deployment from a GitHub repository.
+> It's an all-inclusive hosting service for web apps with serverless APIs built using JavaScript, based on continuous deployment from a GitHub repository.
 
 For the longer version with the deployment instructions, [see this full length article](https://dev.to/sinedied/the-easy-way-to-serverless-web-apps-and-apis-with-azure-swag-2heb).
 
